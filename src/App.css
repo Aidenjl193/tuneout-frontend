@@ -1,0 +1,78 @@
+body {
+	text-align: center;
+	background-image: linear-gradient(to top right, #272626, #241d44);
+	width: 100vw;
+	height: 100vh;
+	font-family: 'Signika', sans-serif;
+}
+
+.App {
+	padding-top: 30px;
+}
+
+.App .left {
+	float: left;
+	width: 50%;
+	display: inline-block;
+}
+
+.App .right {
+	width: 50%;
+	display: inline-block;
+}
+
+.screen-height {
+	height: 100vh;
+}
+
+h1 {
+	color: white;
+	font-size: 50px;
+}
+
+#logo-container {
+	margin-top: 15%;
+}
+
+.alert {
+	color: red;
+}
+
+a {
+	color: #f90;
+}
+
+span.orange {
+	color: #f90;
+}
+
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #211d31;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}

@@ -1,0 +1,64 @@
+input {
+	width: 80%;
+	margin: auto;
+	position: relative;
+	font-size: 40px;
+	border-radius: 20px;
+	outline: none;
+	background-color: #8077772e;
+	border: none;
+	color: white;
+	text-align: center;
+	margin-top: 40px;
+}
+
+input:focus {
+    box-shadow: 0 0 0 2px #f90;
+}
+
+label {
+	padding-top: 40px;
+	padding-bottom: 10px;
+	display: block;
+	font-size: 30px;
+	color: white;
+}
+
+#login-card {
+	height: 80%;
+	margin-top: 10%;
+	margin-left: 10%;
+	width: 80%;
+	border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#login-container {
+	padding-top: 20%;
+}
+
+#login-card p {
+	font-size: 20px;
+	color: white;
+}
+
+#login-card button {
+	margin-top: 30px;
+	display: inline-block;
+	font-size: 40px;
+	width: 80%;
+	border-radius: 20px;
+	outline: none;
+	background-color: rgba(65, 71, 99, 0.5);
+	border-color: #252838;
+	border-width: 2px;
+	color: white;
+}
+
+#login-card button:hover {
+	background-color: rgba(65, 71, 99, 1);
+	cursor: pointer;
+}
+
+span.glow {
+	text-shadow: 0px 0px 5px #f90;
+}

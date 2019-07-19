@@ -1,0 +1,10 @@
+#account-list {
+	width: 30vw;
+	height: 100vh;
+	border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#account-list h2 {
+	padding-top: 20px;
+	color: white;
+}
