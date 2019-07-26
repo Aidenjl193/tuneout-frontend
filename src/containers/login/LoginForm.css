@@ -1,21 +1,3 @@
-input {
-	width: 80%;
-	margin: auto;
-	position: relative;
-	font-size: 40px;
-	border-radius: 20px;
-	outline: none;
-	background-color: #8077772e;
-	border: none;
-	color: white;
-	text-align: center;
-	margin-top: 40px;
-}
-
-input:focus {
-    box-shadow: 0 0 0 2px #f90;
-}
-
 label {
 	padding-top: 40px;
 	padding-bottom: 10px;

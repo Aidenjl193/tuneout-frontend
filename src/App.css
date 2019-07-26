@@ -1,13 +1,14 @@
 body {
 	text-align: center;
-	background-image: linear-gradient(to top right, #272626, #241d44);
+	background-image: linear-gradient(to top right, #272626, #2f1d3a);
 	width: 100vw;
 	height: 100vh;
-	font-family: 'Signika', sans-serif;
+	font-family: 'Darker Grotesque', sans-serif;
+	letter-spacing: 0.3em;;
 }
 
 .App {
-	padding-top: 30px;
+	padding-top: 60px;
 }
 
 .App .left {
@@ -39,31 +40,32 @@ h1 {
 }
 
 a {
-	color: #f90;
+	color: #eb255d;
 }
 
 span.orange {
-	color: #f90;
+	color: #eb255d;
 }
 
 
 
-ul {
+#navbar {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #211d31;
+  background-color: #1c1e32;
   position: fixed;
   top: 0;
   width: 100%;
 }
 
-li {
-  float: left;
+#navbar li {
+	float: left;
+	width: 190px;
 }
 
-li a {
+#navbar li a {
   display: block;
   color: white;
   font-size: 20px;
@@ -72,7 +74,50 @@ li a {
   text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
+.underline {
+	width: 0;
+	height: 2px;
+	background-color: #eb255d;
+	margin: auto;
+	transition: 0.5s;
+}
+
+#navbar li:hover .underline {
+	width: 80%;
+}
+
+#navbar li.active .underline {
+	width: 80%;
+}
+
+input[type="text"] {
+	width: 80%;
+	margin: auto;
+	position: relative;
+	font-size: 40px;
+	border-radius: 20px;
+	outline: none;
+	background-color: #8077772e;
+	border: none;
+	color: white;
+	text-align: center;
+	margin-top: 40px;
+}
+
+input[type="password"] {
+	width: 80%;
+	margin: auto;
+	position: relative;
+	font-size: 40px;
+	border-radius: 20px;
+	outline: none;
+	background-color: #8077772e;
+	border: none;
+	color: white;
+	text-align: center;
+	margin-top: 40px;
+}
+
+input:focus {
+    box-shadow: 0 0 0 2px #eb255d;
 }

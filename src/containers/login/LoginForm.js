@@ -21,7 +21,7 @@ export default class LoginForm extends React.Component {
 		e.preventDefault();
 		
 		const body = {user: {...this.state}};
-		
+		e.target.reset();
 		fetch(api.login, {
 			method: "POST",
 			headers: {
@@ -33,6 +33,7 @@ export default class LoginForm extends React.Component {
 				const jwt = resp.headers.get("Authorization");
 				if(jwt) { //store jwt
 					localStorage.setItem("jwt", jwt);
+					this.props.logInFunc();
 				} else { //un-authorized or error
 					this.setState({valid: false});
 				}

@@ -1,11 +1,13 @@
 export default function sketch (p) {
 	let amplitudes = [
-		[0, "#f90"],
-		[0, "#ff7a8a"],
-		[0, "#fffcc1"],
-		[0, "#239f95"],
-		[0, "#fcb1b1"],
-		[0, "#0f0"]
+		[0, "#c51574"],
+		[0, "#c51574"],
+		[0, "#c51574"],
+		[0, "#c51574"],
+		[0, "#c51574"],
+		[0, "#c51574"],
+		[0, "#c51574"],
+		[0, "#c51574"]
 	];
 	
 	let amplitude = 60;
@@ -37,7 +39,7 @@ export default function sketch (p) {
 	}
 
 	function drawLines() {
-		p.strokeWeight(20);
+		p.strokeWeight(7);
 		const nodeCount = amplitudes.length;
 		const multiplier = p.width / nodeCount;
 		amplitudes.forEach((amplitude, i) => {
