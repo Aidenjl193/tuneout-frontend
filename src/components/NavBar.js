@@ -1,11 +1,7 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
-export default class NavBar extends React.Component{
-
-	state = {
-		selected: "home"
-	}
+class NavBar extends React.Component{
 
 	setCurrentNav = (e) => {
 		this.setState({selected: e.target.parentNode.getAttribute("name")})
@@ -15,9 +11,7 @@ export default class NavBar extends React.Component{
 		return (
 			<ul id="navbar">
 				<li
-					onClick={this.setCurrentNav}
-					className={this.state.selected == "home" ? "active" : "" }
-					name="home"
+					className={this.props.location.pathname == "/" ? "active" : "" }
 				>
 					<Link to="/">HOME</Link><div className="underline" />
 				</li>
@@ -25,16 +19,29 @@ export default class NavBar extends React.Component{
 				{
 					this.props.loggedIn ?
 					<li
-						onClick={this.setCurrentNav}
-						className={this.state.selected == "discover" ? "active" : "" }
-						name="discover"
+						className={this.props.location.pathname == "/discover" ? "active" : "" }
 					>
 						<Link to="/discover">DISCOVER</Link>
 						<div className="underline" />
 					</li> : ""
 				}
 				{
-					this.props.loggedIn ? <li><Link to="/account">MY ACCOUNT</Link><div className="underline" /></li> : ""
+					this.props.loggedIn ?
+					<li
+						className={this.props.location.pathname == "/account" ? "active" : "" }
+					>
+						<Link to="/account">MY ACCOUNT</Link>
+						<div className="underline" />
+					</li> : ""
+				}
+				{
+					this.props.loggedIn ?
+					<li
+						className={this.props.location.pathname == "/player" ? "active" : "" }
+					>
+						<Link to="/player">PLAYER</Link>
+						<div className="underline" />
+					</li> : ""
 				}
 				{
 					this.props.loggedIn ? <li><Link onClick={this.props.logOut}>LOG OUT</Link><div className="underline" /></li> : ""
@@ -44,3 +51,5 @@ export default class NavBar extends React.Component{
 	}
 
 }
+
+export default withRouter(NavBar);
