@@ -1,3 +1,19 @@
 .song-list {
 	color: white;
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+.song-list tr {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	height: 50px;
+}
+
+.song-card {
+	font-size: 20px;
+}
+
+.song-list th {
+	font-size: 25px;
 }

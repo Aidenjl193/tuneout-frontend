@@ -52,27 +52,48 @@ export default class AlbumForm extends React.Component {
 		albumState.append("album[songs][]", this.state.songForm.file, this.state.songForm.name);
 		this.setState({ albumState: albumState });
 	}
+
+	addCover = (e) => {
+		let albumState = this.state.albumState;
+		albumState.set(`album[cover]`, e.target.files[0]);
+		this.setState({albumState: albumState});
+	}
 	
 	render() {
 		return (
-			<div  id="album-form">
-				<form onSubmit={this.submit}>
-					<label name="name">name</label>
-					<input type="text" name="name" onChange={this.onAlbumFormChange}/>
-					<button type="submit">Release Album</button>
-				</form>
-				<form id="song-form">
-					<label name="song_name">add song</label>
-					<input type="text" name="name" onChange={this.onSongFormChange} />
-					<input
-					type="file"
-					name="file"
-					accept="audio/*"
-					onChange={this.setSong}
-					/>
-					<button onClick={this.addSong}>add song</button>
-				</form>
-				<button onClick={this.props.toggleAlbumForm}>go back</button>
+			<div id="album-form">
+				<div className="form-card">
+					<form onSubmit={this.submit}>
+						<label name="name">name</label>
+						<input type="text" name="name" onChange={this.onAlbumFormChange}/>
+						<input
+						type="file"
+						name="cover"
+						accept="image/*"
+						onChange={this.addCover}
+						/>
+						<button type="submit">Release Album</button>
+					</form>
+					<ul>
+						{
+							this.state.albumState.getAll("album[songs][]").map((song) => {
+								return <li>{song[1]}</li>;
+							})
+						}
+					</ul>
+					<form id="song-form">
+						<label name="song_name">add song</label>
+						<input type="text" name="name" onChange={this.onSongFormChange} />
+						<input
+						type="file"
+						name="file"
+						accept="audio/*"
+						onChange={this.setSong}
+						/>
+						<button onClick={this.addSong}>add song</button>
+					</form>
+					<button onClick={this.props.toggleAlbumForm}>go back</button>
+				</div>
 			</div>
 		)
 	}

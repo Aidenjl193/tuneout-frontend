@@ -1,11 +1,13 @@
 import React from 'react';
 import api from '../../Api'
 import AlbumCard from '../albums/AlbumCard'
+import SongList from '../songs/SongList'
 
 export default class Discover extends React.Component {
 
 	state = {
-		albums: []
+		albums: [],
+		songs: []
 	}
 
 	componentDidMount() {
@@ -18,6 +20,12 @@ export default class Discover extends React.Component {
 			.then((data) => {
 				this.setState({albums: data})
 			})
+		
+		fetch(`${api.songs}?filter=${searchTerm}`)
+			.then(resp => resp.json())
+			.then((data) => {
+				this.setState({songs: data})
+			})
 	}
 
 	searchOnChange = (e) => {
@@ -28,7 +36,7 @@ export default class Discover extends React.Component {
 		return(
 			<div>
 				<input type="text" onChange={this.searchOnChange} />
-				<h1>albums</h1>
+				<h1>ALBUMS</h1>
 				<div id="album-container">
 					{
 						this.state.albums.map((album, i) => {
@@ -36,6 +44,8 @@ export default class Discover extends React.Component {
 						})
 					}
 				</div>
+				<h1>SONGS</h1>
+				<SongList songs={this.state.songs}/>
 			</div>
 		)
 	}

@@ -38,7 +38,7 @@ export default class Album extends React.Component {
 		return (
 			<div>
 				<button onClick={this.deleteAlbum}>Delete Album</button>
-				<SongList songs={this.state.album.songs} setCurrentSong={this.props.setCurrentSong} />
+				<SongList songs={this.state.album.songs} albumName={this.state.album.name} addSongToQueue={this.props.addSongToQueue} />
 			</div>
 		)
 	}

@@ -1,6 +1,8 @@
 body {
 	text-align: center;
 	background-image: linear-gradient(to top right, #272626, #2f1d3a);
+	background-repeat: no-repeat;
+    background-attachment: fixed;
 	width: 100vw;
 	height: 100vh;
 	font-family: 'Darker Grotesque', sans-serif;
@@ -61,6 +63,7 @@ span.orange {
   -webkit-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.75);
+  z-index: 1;
 }
 
 #navbar li {
@@ -123,4 +126,11 @@ input[type="password"] {
 
 input:focus {
     box-shadow: 0 0 0 2px #eb255d;
+}
+
+.form-card {
+	width: 60%;
+	height: 100%;
+	background-color: #1c1e32;
+	margin: auto;
 }
