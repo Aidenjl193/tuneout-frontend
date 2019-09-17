@@ -15,7 +15,7 @@ const PlayerPage = (props) => {
 			<div id="info-card">
 				<div id="album-image">
 					{
-						props.songQueue[0] ?	<img src={`http://localhost:3000/${props.songQueue[0].album.cover_art}`} /> : ""
+						props.songQueue[0] ?	<img src={`https://tuneout.netlify.com/${props.songQueue[0].album.cover_art}`} /> : ""
 					}
 				</div>
 			</div>

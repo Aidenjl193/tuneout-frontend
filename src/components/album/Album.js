@@ -41,7 +41,7 @@ export default class Album extends React.Component {
 		return (
 			<div>
 				<div id="album-image">
-					<img src={`http://localhost:3000/${this.state.album.cover_art}`} />
+					<img src={`https://tuneout.netlify.com/${this.state.album.cover_art}`} />
 				</div>
 				<h1>{`${this.state.album.name} - ${this.state.album.account.account_name}`}</h1>
 				<button onClick={this.deleteAlbum}>Delete Album</button>
