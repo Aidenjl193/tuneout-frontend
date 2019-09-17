@@ -16,7 +16,7 @@ const AlbumCard = (props) => {
 							<div className="inner-disk" />
 						</div>
 					</div>
-					<img src={`https://tuneout.netlify.com/${album.cover_art}`} />
+					<img src={`https://tune-out.herokuapp.com/${album.cover_art}`} />
 				</div>
 			</div>
 		</Link>
