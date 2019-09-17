@@ -44,7 +44,7 @@ class NavBar extends React.Component{
 					</li> : ""
 				}
 				{
-					this.props.loggedIn ? <li><Link onClick={this.props.logOut}>LOG OUT</Link><div className="underline" /></li> : ""
+					this.props.loggedIn ? <li className="float-right"><Link onClick={this.props.logOut}>LOG OUT</Link><div className="underline" /></li> : ""
 				}
 			</ul>
 		)

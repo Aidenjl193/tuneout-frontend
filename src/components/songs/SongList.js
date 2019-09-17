@@ -7,15 +7,14 @@ const SongList = (props) => {
 	const { songs } = props;
 
 	const playSong = (e, song) => {
-		fetch(`${api.songs}${song.id}`)
-			.then(resp => resp.json())
-			.then(props.addSongToQueue)
+			props.addSongToQueue(song)
 	}
 	
 	return(
 		<table class="song-list">
 			<tr>
 				<th>SONG</th>
+				<th>ACTIONS</th>
 				<th>ALBUM</th>
 				<th>TIME</th>
 			</tr>

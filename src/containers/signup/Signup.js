@@ -4,22 +4,23 @@ import api from '../../Api'
 
 export default class Signup extends React.Component {
 	state = {
-		email: "",
-		password: "",
+		user: {
+			email: "",
+			password: ""
+		},
 		valid: true
 	}
 
 	onFormChange = (e) => {
-		let state = { ...this.state };
-		state.valid = true;
-		state[e.target.name] = e.target.value;
-		this.setState(state);
+		let user = { ...this.state.user };
+		user[e.target.name] = e.target.value;
+		this.setState({user: user, valid: true});
 	}
 
 	login = (e) => {
 		e.preventDefault();
 		
-		const body = {user: {...this.state}};
+		const body = {user: {...this.state.user}};
 		e.target.reset();
 		fetch(api.signup, {
 			method: "POST",
@@ -42,6 +43,7 @@ export default class Signup extends React.Component {
 		return (
 			<div id="login-card">
 				<form onSubmit={this.login}>
+					<input type="text" name="username" placeholder="username" onChange={this.onFormChange} />
 					<input type="text" name="email" placeholder="email" onChange={this.onFormChange} />
 					<input type="password" name="password" placeholder="password" onChange={this.onFormChange}/>
 					<button type="submit">signup</button>

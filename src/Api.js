@@ -1,4 +1,4 @@
-const ENDPOINT = "http://localhost:3000/"
+const ENDPOINT = "https://tune-out.herokuapp.com/"
 export default {
     login: `${ENDPOINT}login/`,
 	signup: `${ENDPOINT}signup/`,

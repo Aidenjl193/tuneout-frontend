@@ -64,15 +64,16 @@ export default class AlbumForm extends React.Component {
 			<div id="album-form">
 				<div className="form-card">
 					<form onSubmit={this.submit}>
-						<label name="name">name</label>
+						<label name="name">NAME</label>
 						<input type="text" name="name" onChange={this.onAlbumFormChange}/>
+						<label name="cover">COVER ART</label>
 						<input
 						type="file"
 						name="cover"
 						accept="image/*"
 						onChange={this.addCover}
 						/>
-						<button type="submit">Release Album</button>
+						<button type="submit">RELEASE ALBUM</button>
 					</form>
 					<ul>
 						{
@@ -82,7 +83,7 @@ export default class AlbumForm extends React.Component {
 						}
 					</ul>
 					<form id="song-form">
-						<label name="song_name">add song</label>
+						<label name="song_name">ADD SONG</label>
 						<input type="text" name="name" onChange={this.onSongFormChange} />
 						<input
 						type="file"
@@ -90,7 +91,7 @@ export default class AlbumForm extends React.Component {
 						accept="audio/*"
 						onChange={this.setSong}
 						/>
-						<button onClick={this.addSong}>add song</button>
+						<button onClick={this.addSong}>ADD SONG</button>
 					</form>
 					<button onClick={this.props.toggleAlbumForm}>go back</button>
 				</div>

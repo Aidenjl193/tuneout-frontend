@@ -21,7 +21,12 @@ export default class App extends React.Component{
 			name: ""
 		},
 		loggedIn: false,
-		songQueue: []
+		songQueue: [],
+		playerRef: {}
+	}
+
+	setPlayerRef = (ref) => {
+		this.setState({playerRef: ref});
 	}
 
 	logOut = () => {
@@ -85,7 +90,7 @@ export default class App extends React.Component{
 
 	profilePage = (props) => {
 		return (
-			<ProfilePage {...props}/>
+			<ProfilePage {...props} addSongToQueue={this.addSongToQueue}/>
 		)
 	}
 
@@ -97,13 +102,13 @@ export default class App extends React.Component{
 
 	discoverPage = () => {
 		return (
-			<Discover />
+			<Discover addSongToQueue={this.addSongToQueue}/>
 		)
 	}
 
 	playerPage = () => {
 		return (
-			<PlayerPage songQueue={this.state.songQueue} />
+			<PlayerPage songQueue={this.state.songQueue} playerRef={this.state.playerRef} removeSongFromQueue={this.removeSongFromQueue} />
 		)
 	}
 
@@ -111,6 +116,12 @@ export default class App extends React.Component{
 	addSongToQueue = (song) => {
 		let songQueue = [...this.state.songQueue]
 		songQueue.push(song);
+		this.setState({songQueue: songQueue});
+	}
+
+	removeSongFromQueue = (index) => {
+		let songQueue = [...this.state.songQueue]
+		songQueue.splice(index, 1);
 		this.setState({songQueue: songQueue});
 	}
 
@@ -123,21 +134,21 @@ export default class App extends React.Component{
 	render() {
 		return (
 			<Router>
-				<BreakpointProvider>
-					<NavBar logOut={this.logOut} loggedIn={this.state.loggedIn}/>
-					<div className="App">
-						<Route path="/" exact component={this.mainPage} />
-						<Route path="/account" component={this.accountPage} />
-						<Route path="/signup" component={this.signupPage} />
-						<Route path="/accounts/:id" component={this.profilePage} />
-						<Route path="/albums/:id" component={this.albumPage} />
-						<Route path="/discover" component={this.discoverPage} />
-						<Route path="/player" component={this.playerPage} />
-					</div>
-				</BreakpointProvider>
-				{
-					this.state.loggedIn ? <Player currentSong={this.state.songQueue[0]} nextSong={this.nextSong} /> : ""
-				}
+			<BreakpointProvider>
+			<NavBar logOut={this.logOut} loggedIn={this.state.loggedIn}/>
+			<div className="App">
+			<Route path="/" exact component={this.mainPage} />
+			<Route path="/account" component={this.accountPage} />
+			<Route path="/signup" component={this.signupPage} />
+			<Route path="/accounts/:id" component={this.profilePage} />
+			<Route path="/albums/:id" component={this.albumPage} />
+			<Route path="/discover" component={this.discoverPage} />
+			<Route path="/player" component={this.playerPage} />
+			</div>
+			</BreakpointProvider>
+			{
+				this.state.loggedIn ? <Player currentSong={this.state.songQueue[0]} nextSong={this.nextSong} setPlayerRef={this.setPlayerRef} /> : ""
+			}
 			</Router>
 		)
 	}

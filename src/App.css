@@ -64,6 +64,7 @@ span.orange {
   -moz-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.75);
   z-index: 1;
+  width: 100%;
 }
 
 #navbar li {
@@ -133,4 +134,35 @@ input:focus {
 	height: 100%;
 	background-color: #1c1e32;
 	margin: auto;
+	padding-top: 50px;
+}
+
+.form-card label {
+	font-size: 40px;
+	line-height: 0px;
+}
+
+.form-card button {
+	width: 80%;
+	margin: auto;
+	height: 40px;
+	border-radius: 30px;
+}
+
+input[type="file"] {
+	font-size: 40px;
+}
+
+button {
+	display: inline-block;
+	border-radius: 20px;
+	outline: none;
+	background-color: rgba(65, 71, 99, 0.5);
+	border-color: #252838;
+	border-width: 2px;
+	color: white;
+}
+
+#navbar li.float-right {
+	float: right;
 }

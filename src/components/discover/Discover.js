@@ -45,7 +45,7 @@ export default class Discover extends React.Component {
 					}
 				</div>
 				<h1>SONGS</h1>
-				<SongList songs={this.state.songs}/>
+				<SongList songs={this.state.songs} addSongToQueue={this.props.addSongToQueue}/>
 			</div>
 		)
 	}

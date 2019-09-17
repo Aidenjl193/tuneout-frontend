@@ -6,7 +6,10 @@ export default class Album extends React.Component {
 
 	state = {
 		album: {
-			songs: []
+			songs: [],
+			account: {
+				account_name: ""
+			}
 		}
 	}
 
@@ -37,6 +40,10 @@ export default class Album extends React.Component {
 	render() {
 		return (
 			<div>
+				<div id="album-image">
+					<img src={`http://localhost:3000/${this.state.album.cover_art}`} />
+				</div>
+				<h1>{`${this.state.album.name} - ${this.state.album.account.account_name}`}</h1>
 				<button onClick={this.deleteAlbum}>Delete Album</button>
 				<SongList songs={this.state.album.songs} albumName={this.state.album.name} addSongToQueue={this.props.addSongToQueue} />
 			</div>
