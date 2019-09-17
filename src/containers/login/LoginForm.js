@@ -31,6 +31,7 @@ export default class LoginForm extends React.Component {
 		})
 			.then(resp => {
 				const jwt = resp.headers.get("Authorization");
+				console.log(jwt);
 				if(jwt) { //store jwt
 					localStorage.setItem("jwt", jwt);
 					this.props.logInFunc();
