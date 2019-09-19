@@ -62,21 +62,22 @@ audio {
 	width: 0%;
 	font-size: 20px;
 	display: inline;
-	margin-left: 10px;
 	line-height: 57px;
 	height: 57px;
+	white-space: nowrap;
+}
+
+#player-bar #info {
+	font-size: 17px;
 }
 
 #player-bar button {
-	margin-left: 40px;
 	font-size: 25px;
 	background-color: transparent;
 	border: 0;
 	transition-duration: 0.3s;
-	line-height: 47px;
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
+	padding: 0;
+	padding-right: 10px;
 }
 
 #player-bar button:hover {
@@ -101,4 +102,14 @@ audio {
 	height: 5px;
 	background-color: #eb255d;
 	position: absolute;
+}
+
+#player-bar-contents {
+	width: 100%;
+}
+
+#player-bar-contents td{
+	max-width: 33vw;
+	width: 33vw;
+	text-align: center;
 }

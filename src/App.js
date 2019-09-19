@@ -22,7 +22,8 @@ export default class App extends React.Component{
 		},
 		loggedIn: false,
 		songQueue: [],
-		playerRef: {}
+		playerRef: {},
+		songIndex: 0
 	}
 
 	setPlayerRef = (ref) => {
@@ -108,7 +109,11 @@ export default class App extends React.Component{
 
 	playerPage = () => {
 		return (
-			<PlayerPage songQueue={this.state.songQueue} playerRef={this.state.playerRef} removeSongFromQueue={this.removeSongFromQueue} />
+			<PlayerPage songQueue={this.state.songQueue}
+			playerRef={this.state.playerRef}
+			removeSongFromQueue={this.removeSongFromQueue}
+			songIndex={this.state.songIndex}
+			/>
 		)
 	}
 
@@ -126,9 +131,7 @@ export default class App extends React.Component{
 	}
 
 	nextSong = () => {
-		let songQueue = [...this.state.songQueue]
-		songQueue.shift();
-		this.setState({songQueue: songQueue});
+		this.setState({songIndex: this.state.songIndex + 1});
 	}
 	
 	render() {
@@ -147,7 +150,7 @@ export default class App extends React.Component{
 			</div>
 			</BreakpointProvider>
 			{
-				this.state.loggedIn ? <Player currentSong={this.state.songQueue[0]} nextSong={this.nextSong} setPlayerRef={this.setPlayerRef} /> : ""
+				this.state.loggedIn ? <Player currentSong={this.state.songQueue[this.state.songIndex]} nextSong={this.nextSong} setPlayerRef={this.setPlayerRef} /> : ""
 			}
 			</Router>
 		)

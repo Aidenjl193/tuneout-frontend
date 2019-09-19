@@ -61,12 +61,27 @@ class Player extends React.Component {
 						}
 						}/>
 					</div>
-					<button onClick={this.togglePlay}>{this.state.playing ? "❚❚" : "►"}</button>
-					<p>
-						{
-							`${this.getFormattedTimeFromSeconds(this.state.song.currentTime)}/${this.getFormattedTimeFromSeconds(this.state.song.duration)}`
-						}
-					</p>
+					<table id="player-bar-contents">
+						<tr>
+							<td>
+								<button onClick={this.togglePlay}>{this.state.playing ? "❚❚" : "►"}</button>
+								<p>
+									{
+										`${this.getFormattedTimeFromSeconds(this.state.song.currentTime)}/${this.getFormattedTimeFromSeconds(this.state.song.duration)}`
+									}
+								</p>
+							</td>
+							<td>
+								<p id="info">
+									{
+										this.props.currentSong ? `now playing - ${this.props.currentSong.name} - ${this.props.currentSong}` : ""
+									}
+								</p>
+							</td>
+							<td>
+							</td>
+						</tr>
+					</table>
 				</div>
 				<audio
 				controls src={this.props.currentSong ? `https://tune-out.herokuapp.com/${this.props.currentSong.song_url}` : ""}

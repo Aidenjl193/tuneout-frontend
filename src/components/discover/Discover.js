@@ -35,7 +35,7 @@ export default class Discover extends React.Component {
 	render() {
 		return(
 			<div>
-				<input type="text" onChange={this.searchOnChange} />
+				<input type="text" onChange={this.searchOnChange} placeholder="search" />
 				<h1>ALBUMS</h1>
 				<div id="album-container">
 					{

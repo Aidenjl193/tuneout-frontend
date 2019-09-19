@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from '../carousel/Carousel.js'
 
 const PlayerPage = (props) => {
 	return (
@@ -6,18 +7,19 @@ const PlayerPage = (props) => {
 			<div id="queue-card">
 				<ul>
 					{
-						props.songQueue.map((song, index) => {
+						props.songQueue.slice(props.songIndex, props.songQueue.length).map((song, index) => {
 							return <li>{song.name}<button onClick={(e) => {props.removeSongFromQueue(index)}}>REMOVE</button></li>;
 						})
 					}
 				</ul>
 			</div>
 			<div id="info-card">
-				<div id="album-image">
-					{
-						props.songQueue[0] ?	<img src={`https://tune-out.herokuapp.com/${props.songQueue[0].album.cover_art}`} /> : ""
-					}
-				</div>
+				<Carousel urls={
+				props.songQueue.slice(props.songIndex == 0 ? 0 : props.songIndex - 1, props.songIndex + 7).map((song) => {
+					return song.album.cover_art;
+				})}
+				songIndex={props.songIndex}
+				/>
 			</div>
 		</div>
 	)
