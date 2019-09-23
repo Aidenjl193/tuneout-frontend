@@ -60,22 +60,30 @@ class Player extends React.Component {
 						}
 						}/>
 					</div>
-					<table id="player-bar-contents">
+					<table>
 						<tr>
-							<td id="time">
-								<button onClick={this.togglePlay}>{this.state.playing ? "❚❚" : "►"}</button>
-								<p>
-									{
-										`${this.getFormattedTimeFromSeconds(this.state.song.currentTime)}/${this.getFormattedTimeFromSeconds(this.state.song.duration)}`
-									}
-								</p>
+							<td>
+								<img id="album-image" src={
+								this.props.currentSong ? `https://tune-out.herokuapp.com/${this.props.currentSong.album.cover_art}` : ""
+								}/>
+								<div id="song-details">
+									<h3>
+										{
+											this.props.currentSong ? this.props.currentSong.name : ""
+										}
+									</h3>
+									<br/>
+									<p>
+										{
+											this.props.currentSong ? this.props.currentSong.album.name : ""
+										}
+									</p>
+								</div>
 							</td>
 							<td>
-								<p id="info">
-									{
-										this.props.currentSong ? `now playing - ${this.props.currentSong.name} - ${this.props.currentSong}` : ""
-									}
-								</p>
+								<div id="player-controls">
+									<button onClick={this.togglePlay}>{this.state.playing ? "❚❚" : "►"}</button>
+								</div>
 							</td>
 							<td>
 							</td>
