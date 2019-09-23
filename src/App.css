@@ -25,7 +25,6 @@ body {
 }
 
 .screen-height {
-	height: 100vh;
 }
 
 h1 {
@@ -68,12 +67,29 @@ span.orange {
   width: 100%;
 }
 
-#navbar li {
-	float: left;
-	width: 190px;
+#navbar-mobile {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1c1e32;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  letter-spacing: 0.3em;;
+  -webkit-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.75);
+  z-index: 1;
+  width: 100%;
 }
 
-#navbar li a {
+#navbar li {
+	float: left;
+	width: 160px;
+	padding-right: 1.5vw;
+}
+
+li a {
 	display: block;
   color: white;
   font-size: 20px;

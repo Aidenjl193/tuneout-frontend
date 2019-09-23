@@ -58,13 +58,17 @@ audio {
 	text-align: left;
 }
 
+#player-bar table tr #time {
+	text-align: left;
+}
+
 #player-bar p {
-	width: 0%;
 	font-size: 20px;
 	display: inline;
 	line-height: 57px;
 	height: 57px;
 	white-space: nowrap;
+	padding-bottom: 2.5px;
 }
 
 #player-bar #info {
@@ -78,6 +82,7 @@ audio {
 	transition-duration: 0.3s;
 	padding: 0;
 	padding-right: 10px;
+	margin-left: 50px;
 }
 
 #player-bar button:hover {

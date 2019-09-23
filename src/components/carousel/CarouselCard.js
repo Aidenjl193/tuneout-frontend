@@ -1,6 +1,7 @@
 import React from 'react'
 
 const CarouselCard = (props) => {
+	let relativeCoords = (props.index - props.viewIndex) % 8;
 	return (
 		<div className="carousel-card" style={
 		{

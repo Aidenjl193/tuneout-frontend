@@ -45,7 +45,6 @@ class Player extends React.Component {
 	}
 
 	setTime = (e) => {
-		console.log("click");
 		this.playerRef.current.currentTime = this.state.song.duration * (e.nativeEvent.offsetX / e.currentTarget.offsetWidth);
 	}
 	
@@ -63,7 +62,7 @@ class Player extends React.Component {
 					</div>
 					<table id="player-bar-contents">
 						<tr>
-							<td>
+							<td id="time">
 								<button onClick={this.togglePlay}>{this.state.playing ? "❚❚" : "►"}</button>
 								<p>
 									{

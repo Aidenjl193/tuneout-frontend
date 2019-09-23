@@ -18,6 +18,7 @@ const PlayerPage = (props) => {
 				props.songQueue.slice(props.songIndex == 0 ? 0 : props.songIndex - 1, props.songIndex + 7).map((song) => {
 					return song.album.cover_art;
 				})}
+				songQueue={props.songQueue}
 				songIndex={props.songIndex}
 				/>
 			</div>
