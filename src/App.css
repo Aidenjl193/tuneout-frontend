@@ -83,10 +83,36 @@ span.orange {
   width: 100%;
 }
 
+#navbar-mobile-collapsed {
+	position: fixed;
+	top: 0;
+	background-color: #1c1e32;
+	width: 100%;
+	height: 57px;
+	z-index: 1;
+}
+
+#burger {
+	width: 50px;
+	height: 50px;
+	margin: 10px;
+}
+
+#burger div {
+	width: 90%;
+	height: 5px;
+	background-color: white;
+	margin-top: 10px;
+	border-radius: 10px;
+}
+
+#navbar-mobile li:hover a {
+  color: #eb255d;
+}
+
 #navbar li {
 	float: left;
-	width: 160px;
-	padding-right: 1.5vw;
+	width: 180px;
 }
 
 li a {

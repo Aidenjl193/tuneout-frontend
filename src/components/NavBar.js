@@ -12,81 +12,88 @@ class NavBar extends React.Component {
 		this.setState({selected: e.target.parentNode.getAttribute("name")})
 	}
 
+	toggleNav = () => {
+		this.setState({showNav: !this.state.showNav});
+	}
+
 	render(){
 		return (
 			<>
-				<Breakpoint medium up>
-					<ul id="navbar">
-						<li
-							className={this.props.location.pathname == "/" ? "active" : "" }
-						>
-							<Link to="/">HOME</Link><div className="underline" />
+			<Breakpoint medium up>
+			<ul id="navbar">
+			<li
+			className={this.props.location.pathname == "/" ? "active" : "" }
+			>
+			<Link to="/">HOME</Link><div className="underline" />
+			</li>
+			
+			{
+				this.props.loggedIn ?
+				<>
+					<li
+						className={this.props.location.pathname == "/discover" ? "active" : "" }
+					>
+						<Link to="/discover">DISCOVER</Link>
+						<div className="underline" />
+					</li>
+					<li
+						className={this.props.location.pathname == "/account" ? "active" : "" }
+					>
+						<Link to="/account">ACCOUNT</Link>
+						<div className="underline" />
+					</li>
+					<li
+						className={this.props.location.pathname == "/player" ? "active" : "" }
+					>
+						<Link to="/player">PLAYER</Link>
+						<div className="underline" />
+					</li>
+				</> : ""
+				
+			}
+			{
+				this.props.loggedIn ? <li className="float-right"><Link onClick={this.props.logOut}>LOG OUT</Link><div className="underline" /></li> : ""
+			}
+			</ul>
+			</Breakpoint>
+			<Breakpoint small down>
+			{
+				this.state.showNav ?
+				<ul id="navbar-mobile">
+				<li>
+				<Link to="/" onClick={this.toggleNav}>HOME</Link>
+				</li>		
+				{
+					this.props.loggedIn ?
+					<>
+						<li>
+							<Link to="/discover" onClick={this.toggleNav}>DISCOVER</Link>
 						</li>
-						
-						{
-							this.props.loggedIn ?
-							<>
-								<li
-									className={this.props.location.pathname == "/discover" ? "active" : "" }
-								>
-									<Link to="/discover">DISCOVER</Link>
-									<div className="underline" />
-								</li>
-							<li
-								className={this.props.location.pathname == "/account" ? "active" : "" }
-							>
-								<Link to="/account">ACCOUNT</Link>
-								<div className="underline" />
-							</li>
-							<li
-								className={this.props.location.pathname == "/player" ? "active" : "" }
-							>
-								<Link to="/player">PLAYER</Link>
-								<div className="underline" />
-							</li>
-							</> : ""
-							
-						}
-						{
-							this.props.loggedIn ? <li className="float-right"><Link onClick={this.props.logOut}>LOG OUT</Link><div className="underline" /></li> : ""
-						}
-					</ul>
-				</Breakpoint>
-				<Breakpoint small down>
-					<ul id="navbar-mobile">
-						<li
-							className={this.props.location.pathname == "/" ? "active" : "" }
-						>
-							<Link to="/">HOME</Link><div className="underline" />
+						<li>
+							<Link to="/account" onClick={this.toggleNav}>ACCOUNT</Link>
 						</li>
-						
-						{
-							this.props.loggedIn ?
-							<>
-								<li
-									className={this.props.location.pathname == "/discover" ? "active" : "" }
-								>
-									<Link to="/discover">DISCOVER</Link>
-									<div className="underline" />
-								</li>
-							<li
-								className={this.props.location.pathname == "/account" ? "active" : "" }
-							>
-								<Link to="/account">ACCOUNT</Link>
-								<div className="underline" />
-							</li>
-							<li
-								className={this.props.location.pathname == "/player" ? "active" : "" }
-							>
-								<Link to="/player">PLAYER</Link>
-								<div className="underline" />
-							</li>
-							</> : ""
-						}
-						{
-							this.props.loggedIn ? <li className="float-right"><Link onClick={this.props.logOut}>LOG OUT</Link><div className="underline" /></li> : ""
-						}
-					</ul>
+						<li>
+							<Link to="/player" onClick={this.toggleNav}>PLAYER</Link>
+						</li>
+						<li >
+							<Link onClick={() =>{
+								this.props.logOut();
+								this.toggleNav();
+							}}>LOG OUT</Link><div className="underline" />
+						</li>
+					</> : ""
+				}
+				</ul>
+				:
+				<div id="navbar-mobile-collapsed">
+					<div id="burger" onClick={this.toggleNav}>
+						<div />
+						<div />
+						<div />
+					</div>
+				</div>
+			}
+
 				</Breakpoint>
 			</>
 		)

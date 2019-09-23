@@ -7,7 +7,7 @@ const SongList = (props) => {
 	const { songs } = props;
 
 	const playSong = (e, song) => {
-			props.addSongToQueue(song)
+		props.addSongToQueue(song)
 	}
 	
 	return(
@@ -19,9 +19,9 @@ const SongList = (props) => {
 				<th>TIME</th>
 			</tr>
 			{
-				songs.map((song) => {
+				songs.map((song, index) => {
 					return 	(
-						<SongCard song={song} playSong={playSong} />
+						<SongCard song={song} playSong={playSong} key={index} index={index} />
 					)
 				})
 			}
